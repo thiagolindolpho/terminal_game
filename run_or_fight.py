@@ -1,10 +1,11 @@
 import os
 from escape_combat import escape_combat
+from combat_start import combat_start
 
-def run_or_fight(escolha):
+def run_or_fight(escolha, hero, enemy):
     while True:
             if escolha == "1":
-                #combat_start()
+                combat_start(hero, enemy)
                 break
             elif escolha == "2":
                 escape_combat()

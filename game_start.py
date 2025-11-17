@@ -1,11 +1,10 @@
 from rand_item import item_randomizer
-from rand_enemy import enemy_randomizer
 from equip_item import equip_item
 from enemies import enemy_list1, enemy_list2, enemy_list3
 from hero import hero
 import os
-from run_or_fight import run_or_fight
-
+from items import king_items
+from encounter import encounter
 
 def start_game():
     print("\n   game started!\n")
@@ -15,10 +14,10 @@ def start_game():
     print("*" * 60)
     print("\n")
 
-    SPECIAL_ITEM = item_randomizer()
+    SPECIAL_ITEM = item_randomizer(king_items)
     hero_kaelen = None
     escolha = None
-    random_enemy = None
+    random_enemy = enemy_list1
 
     # Início da Narrativa
     print("    The air in the capital of Aldoria was thick with despair, a heavy blanket of grief")
@@ -106,19 +105,6 @@ def start_game():
 
     input("\n > press any key")
     os.system("clear")
-    print("\n" + "!" * 10 + "  ENCOUNTER  " + "!" * 10)
-    random_enemy = enemy_randomizer(enemy_list1)
+    encounter(random_enemy, hero)
 
-    print(f"\n    a group of {random_enemy["name"]} appears!")
-    print()
-    
-    # Breve descrição da ação
-    print(f"    The group of {random_enemy["name"]} rush into attack, closing the distance quickly.")
-    print("    Kaelen raises his guard. There is no time for dialogue.")
-    print()
-
-    print(" - type 1 for fight\n - type 2 for escape")
-    escolha = input("\n > input: ")
-
-    run_or_fight(escolha)
     
