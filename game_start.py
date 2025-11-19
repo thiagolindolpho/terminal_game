@@ -17,7 +17,7 @@ def start_game():
     SPECIAL_ITEM = item_randomizer(king_items)
     hero_kaelen = None
     escolha = None
-    random_enemy = enemy_list1
+    random_enemy = enemy_list2
 
     # Início da Narrativa
     print("    The air in the capital of Aldoria was thick with despair, a heavy blanket of grief")
@@ -105,6 +105,7 @@ def start_game():
 
     input("\n > press any key")
     os.system("clear")
-    encounter(random_enemy, hero)
+    for i in range(0,4):
+        encounter(random_enemy, hero)
 
     

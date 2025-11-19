@@ -1,10 +1,10 @@
 def calculate_damage(attacker, receptor):
-    new_health = round(receptor["health"] - (attacker["damage"] - (receptor["armor"] / 3)))
+    dmg_value = round(attacker["damage"] - (receptor["armor"] / 3))
 
-    return new_health
+    return dmg_value
 
 
-    #na hora do loop do combat_start a vida não está diminuindo
+    
 
         
 

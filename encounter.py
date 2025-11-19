@@ -7,11 +7,11 @@ def encounter(enemy_list, hero):
     hero1 = hero
     random_enemy = enemy_randomizer(enemy_list)
 
-    print(f"\n    a group of {random_enemy["name"]} appears!")
+    print(f"\n    a {random_enemy["name"]} appears!")
     print()
         
     # Breve descrição da ação
-    print(f"    The group of {random_enemy["name"]} rush into attack, closing the distance quickly.")
+    print(f"    The {random_enemy["name"]} rush into attack, closing the distance quickly.")
     print("    Kaelen raises his guard. There is no time for dialogue.")
     print()
 
