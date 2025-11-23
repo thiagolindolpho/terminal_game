@@ -12,14 +12,14 @@ item_list = [
         "tier": "C",
         "id": 2,
         "name": "spider ring",
-        "attack_speed": 5
+        "attack_speed": 3
     },
     # Item 3: murakumo
     {
         "tier": "A",
         "id": 3,
         "name": "murakumo",
-        "attack_speed": 15,
+        "attack_speed": 5,
         "damage": 15
     },
     # Item 4: hood_of_the_void (CORRIGIDO: adicionada vírgula)
@@ -28,7 +28,7 @@ item_list = [
         "id": 4,
         "name": "hood of the void",
         "status_resistance": 5,  # <-- Vírgula adicionada aqui
-        "magic_resistance": 25
+        "magic_resistance": 35
     },
     # Item 5: basic_sword
     {
@@ -66,7 +66,7 @@ item_list = [
         "tier": "A",
         "id": 9,
         "name": "bear armor",
-        "armor": 20,
+        "armor": 8,
         "status_resistance": 15,
         "health": 50
     },
@@ -115,8 +115,8 @@ king_items = [
         "tier": "C",
         "id": 15,
         "name": "rapier",
-        "attack_speed": 5,
-        "damage": 2
+        "attack_speed": 2,
+        "damage": 4
     },
 
     {

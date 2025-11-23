@@ -3,7 +3,7 @@ from equip_item import equip_item
 from enemies import enemy_list1, enemy_list2, enemy_list3
 from hero import hero
 import os
-from items import king_items
+from items import king_items, item_list
 from encounter import encounter
 
 def start_game():

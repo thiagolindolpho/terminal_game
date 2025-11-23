@@ -1,6 +1,8 @@
 import random
 import time
 from calculate_dmg import calculate_damage
+from life_steal import life_steal
+from health_regen import health_regen
 
 
 def combat_start(hero, enemy):
@@ -9,6 +11,9 @@ def combat_start(hero, enemy):
     enemy_max_health = enemy["health"]
     hero_actual_health = hero["health"]
     hero_max_health = hero["health"]
+    life_steal_cure = 0
+    health_regen_cure = 0
+    
     coin_flip = 0
 
 
@@ -16,9 +21,15 @@ def combat_start(hero, enemy):
         coin_flip = random.randint(1, 2)
 
         if coin_flip == 1:
-            enemy_actual_health -= calculate_damage(hero, enemy) # <-- calculo de dano vem aqui
+            enemy_actual_health -= calculate_damage(hero, enemy)
+            life_steal_cure = life_steal(hero, hero_actual_health)
+            health_regen_cure = health_regen(hero, hero_actual_health)
+            hero_actual_health += life_steal_cure
+            hero_actual_health += health_regen_cure 
         elif coin_flip == 2:
             hero_actual_health -= calculate_damage(enemy, hero)
+            health_regen_cure = health_regen(hero, hero_actual_health)
+            hero_actual_health += health_regen_cure
         
         if enemy_actual_health < 1:
             print(f"\n{hero["name"]} was victorious")
@@ -27,18 +38,18 @@ def combat_start(hero, enemy):
             print(f"\n{enemy["name"]} killed {hero["name"]}!")
             break
        
-        #é preciso implementar as funções para o roubo de vida e a regeneração de vida
-        #ambos não podem curar acima da vida maxima do heroi, isso seria aumentar a vida maxima e não curar
+        
         if coin_flip == 1:
-            print(f"{hero["name"]} unleashes x{hero["attack_speed"] // 5} attacks, inflicting {calculate_damage(hero, enemy)}.\n")
+            print(f"{hero["name"]} unleashes x{hero["attack_speed"] // 5} attacks, inflicting {calculate_damage(hero, enemy)} damage.\n")
             print(f" - Damage reduced by enemy: {round((hero["attack_speed"] // 5 * (enemy["armor"] / 3)))}")
-            print(f" - Hero Health Regeneration: {hero["health_regen"]}")
-            print(f" - Hero Lifesteal: {hero["life_steal"]}\n")
+            print(f" - Hero Health Regeneration: +{health_regen_cure}")
+            print(f" - Hero Lifesteal: +{life_steal_cure}\n")
             print(f"enemy current health: {enemy_max_health}/{enemy_actual_health}(-{calculate_damage(hero, enemy)})")
         elif coin_flip == 2:
-            print(f"{enemy["name"]} attacks {hero["name"]}, inflicting {calculate_damage(enemy, hero)}.")
-            print(f"hero current health: {hero_max_health}/{hero_actual_health}(-{calculate_damage(enemy, hero)})")
-            #falta colocar o dano reduzido pelo heroi aqui
+            print(f"{enemy["name"]} attacks {hero["name"]}, inflicting {calculate_damage(enemy, hero)} damage.\n")
+            print(f" - Damage reduced by hero: {round((hero["armor"] / 3))}")
+            print(f" - Hero Health Regeneration: +{hero["health_regen"]}\n")
+            print(f"hero current health: {hero_max_health}/{hero_actual_health}(-{calculate_damage(enemy, hero)})(+{health_regen_cure})")
         else:
             print("ERROR")
             break
