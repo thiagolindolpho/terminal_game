@@ -16,8 +16,9 @@ def start_game():
 
     SPECIAL_ITEM = item_randomizer(king_items)
     hero_kaelen = None
+    updated_hero = None
     escolha = None
-    random_enemy = enemy_list2
+    random_enemy = enemy_list1
 
     # Início da Narrativa
     print("    The air in the capital of Aldoria was thick with despair, a heavy blanket of grief")
@@ -105,7 +106,14 @@ def start_game():
 
     input("\n > press any key")
     os.system("clear")
-    for i in range(0,4):
-        encounter(random_enemy, hero)
+    updated_hero = encounter(random_enemy, hero_kaelen)
+    hero_kaelen.update(updated_hero)
+    print(hero_kaelen)
+    input("\n > press any key")
+    os.system("clear")
+    print("    Victory secured, Kaelen disappears into the deep canopy.")
+    print("    His perilous journey continues, the wilderness promising grim secrets.")
+    input("\n > press any key")
+    os.system("clear")
 
     

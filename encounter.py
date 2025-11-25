@@ -18,4 +18,4 @@ def encounter(enemy_list, hero):
     print(" - type 1 for fight\n - type 2 for escape")
     escolha = input("\n > input: ")
 
-    run_or_fight(escolha, hero, random_enemy)
+    return run_or_fight(escolha, hero, random_enemy)
