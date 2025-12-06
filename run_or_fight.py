@@ -11,6 +11,8 @@ def run_or_fight(escolha, hero, enemy):
                 break
             elif escolha == "2":
                 escape_combat()
+                hero["status"] = "escape"
+                return hero
                 break
             else:
                 os.system('clear')

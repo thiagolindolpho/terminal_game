@@ -10,7 +10,7 @@ def combat_start(hero, enemy):
 
     enemy_actual_health = enemy["health"]
     enemy_max_health = enemy["health"]
-    hero_actual_health = hero["health"]
+    hero_actual_health = hero["current_health"]
     hero_max_health = hero["health"]
     life_steal_cure = 0
     health_regen_cure = 0
@@ -36,11 +36,13 @@ def combat_start(hero, enemy):
         if enemy_actual_health < 1:
             print(f"\n{hero["name"]} was victorious\n")
 
-            return level_up(hero, enemy)
+            return level_up(hero, enemy, hero_actual_health)
 
             break
         elif hero_actual_health < 1:
             print(f"\n{enemy["name"]} killed {hero["name"]}!")
+            hero["status"] = "dead"
+            return hero
             break
        
         
@@ -58,8 +60,6 @@ def combat_start(hero, enemy):
         else:
             print("ERROR")
             break
-    
-    #proximo passo é criar função de subir de nivel que acumula e checa se a xp é o sufuiciente para subir de nivel e se for, aumentar os atributos
 
         print("\n")
         time.sleep(4)

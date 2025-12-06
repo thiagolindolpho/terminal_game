@@ -89,3 +89,63 @@ enemy_list3 = [
     }
 ]
 
+enemy_list_test = [
+    
+    # Inimigo 1: wolf
+    {
+        "name": "wolf",
+        "type": "enemy", # <-- Adicionado
+        "health": 5,
+        "damage": 8,
+        "armor": 2,
+        "xp": 10
+    },
+    # Inimigo 2: goblin
+    {
+        "name": "goblin",
+        "type": "enemy", # <-- Adicionado
+        "health": 7,
+        "damage": 6,
+        "armor": 2,
+        "xp": 15
+        
+    },
+    # Inimigo 3: bandit
+    {
+        "name": "bandit",
+        "type": "enemy", # <-- Adicionado
+        "health": 12,
+        "damage": 10,
+        "armor": 4,
+        "xp": 15
+    },
+
+     # Inimigo 1: troll
+    {
+        "name": "troll",
+        "type": "enemy", # <-- Adicionado
+        "health": 15,
+        "damage": 10,
+        "armor": 5,
+        "xp": 18
+    },
+    # Inimigo 2: ogre
+    {
+        "name": "ogre",
+        "type": "enemy", # <-- Adicionado
+        "health": 80,
+        "damage": 35,
+        "armor": 8,
+        "xp": 35
+    },
+    # Inimigo 3: orc
+    {
+        "name": "orc",
+        "type": "enemy", # <-- Adicionado
+        "health": 70,
+        "damage": 32,
+        "armor": 15,
+        "xp": 40
+    }
+]
+

@@ -1,6 +1,6 @@
 from rand_item import item_randomizer
 from equip_item import equip_item
-from enemies import enemy_list1, enemy_list2, enemy_list3
+from enemies import enemy_list1, enemy_list2, enemy_list3, enemy_list_test
 from hero import hero
 import os
 from items import king_items, item_list
@@ -18,7 +18,7 @@ def start_game():
     hero_kaelen = None
     updated_hero = None
     escolha = None
-    random_enemy = enemy_list1
+    random_enemy = enemy_list_test
 
     # Início da Narrativa
     print("    The air in the capital of Aldoria was thick with despair, a heavy blanket of grief")
@@ -106,14 +106,23 @@ def start_game():
 
     input("\n > press any key")
     os.system("clear")
-    updated_hero = encounter(random_enemy, hero_kaelen)
-    hero_kaelen.update(updated_hero)
-    print(hero_kaelen)
-    input("\n > press any key")
-    os.system("clear")
-    print("    Victory secured, Kaelen disappears into the deep canopy.")
-    print("    His perilous journey continues, the wilderness promising grim secrets.")
-    input("\n > press any key")
-    os.system("clear")
+    for i in range(0,30):
+        updated_hero = encounter(random_enemy, hero_kaelen)
+        if updated_hero["status"] == "escape":
+            updated_hero["status"] = "default"  #combate praticamente concluido, proximo passo será modularizar tudo oque está dentro desse for i in range(0, 30), ou pelomenos mudularizar checagem de status.
+            break
+        elif updated_hero["status"] == "dead":
+            print("\nGAME OVER")
+            break
+        else:
+            hero_kaelen.update(updated_hero)                    
+            print(hero_kaelen)      
+
+        input("\n > press any key")
+        os.system("clear")
+        print("    Victory secured, Kaelen disappears into the deep canopy.")
+        print("    His perilous journey continues, the wilderness promising grim secrets.")
+        input("\n > press any key")
+        os.system("clear")
 
     

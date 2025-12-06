@@ -12,3 +12,4 @@ random_number = random.randint(0, len(escape_description_list) - 1)
 def escape_combat():
     
     print(escape_description_list[random_number])
+

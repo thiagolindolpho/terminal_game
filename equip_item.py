@@ -5,5 +5,7 @@ def equip_item(hero, item):
         for c in hero_chave:
             if chave == c and c != "name":
                 hero[chave] += valor
+                if chave == "health":
+                    hero["current_health"] += valor
 
     return hero
