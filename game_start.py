@@ -5,6 +5,7 @@ from hero import hero
 import os
 from items import king_items, item_list
 from encounter import encounter
+from end_fight_desc import combat_victory
 
 def start_game():
     print("\n   game started!\n")
@@ -106,23 +107,24 @@ def start_game():
 
     input("\n > press any key")
     os.system("clear")
-    for i in range(0,30):
-        updated_hero = encounter(random_enemy, hero_kaelen)
+    for i in range(0, 8):
+        updated_hero = encounter(enemy_list1, hero_kaelen)
         if updated_hero["status"] == "escape":
-            updated_hero["status"] = "default"  #combate praticamente concluido, proximo passo será modularizar tudo oque está dentro desse for i in range(0, 30), ou pelomenos mudularizar checagem de status.
-            break
+            updated_hero["status"] = "default"  
+            pass
         elif updated_hero["status"] == "dead":
-            print("\nGAME OVER")
+            print("\n   GAME OVER")
             break
         else:
             hero_kaelen.update(updated_hero)                    
             print(hero_kaelen)      
 
-        input("\n > press any key")
-        os.system("clear")
-        print("    Victory secured, Kaelen disappears into the deep canopy.")
-        print("    His perilous journey continues, the wilderness promising grim secrets.")
-        input("\n > press any key")
-        os.system("clear")
+            input("\n > press any key")
+            os.system("clear")
+            combat_victory()
+            input("\n > press any key")
+            os.system("clear")
+
+            #proximo parte deverá implementar as funções que serão as quests e randomizar o npc da lista de npc's, assim, randomizando a quest tambem.
 
     
